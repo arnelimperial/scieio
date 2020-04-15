@@ -16,6 +16,7 @@ urlpatterns = [
     path("users/", include("scieio.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("products/categories/", include("goods.categories.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
