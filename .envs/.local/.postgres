@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=scieio
+POSTGRES_USER=umfMMpYdBmipqyHInJJDTmegXXFxthUS
+POSTGRES_PASSWORD=OhzznG8WFLCpIIgOnj6zDc3Tbvi5ildW4Ddb8QK62JjL2z86mo269IMYe4jkznv0
