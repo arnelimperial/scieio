@@ -18,3 +18,31 @@ class LCChromaSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.LCChroma
         fields = ('id', 'name', 'slug', 'created', 'updated')
+
+
+class GCSystemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.GCSystem
+        fields = (
+            'id',
+            'product_category',
+            'instrument_category',
+            'chromatography_category',
+            'gc_category',
+            'name',
+            'slug',
+            'description',
+            'product_id',
+            'model',
+            'condition',
+            'warranty',
+            'seller',
+            'manufacturer',
+            'image',
+            'price',
+            'created',
+            'name',
+            'slug',
+            'created',
+            'updated'
+        )

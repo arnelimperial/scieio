@@ -8,8 +8,10 @@ class Seller(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, editable=False)
     location = models.CharField(max_length=100)
-    website = models.URLField(max_length=100)
-    phone = models.CharField(max_length=18)
+    website = models.URLField(max_length=100, blank=True)
+    description = models.TextField(blank=True)
+    shipping_policy = models.CharField(max_length=255, default='')
+    return_policy = models.CharField(max_length=255, default='')
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 

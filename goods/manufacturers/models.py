@@ -6,7 +6,8 @@ from django.urls import reverse
 class Manufacturer(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, editable=False)
-    website = models.URLField(max_length=100)
+    website = models.URLField(max_length=100, blank=True)
+    description = models.TextField(blank=False, default='')
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
