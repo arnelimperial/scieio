@@ -2,8 +2,8 @@ from django.contrib import admin
 from . import models
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class ChromaCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'slug', 'created', 'updated')
 
 
-admin.site.register(models.Category, CategoryAdmin)
+admin.site.register(models.ChromaCategory, ChromaCategoryAdmin)
