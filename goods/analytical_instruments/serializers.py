@@ -2,10 +2,10 @@ from rest_framework import serializers
 from . import models
 
 
-class InstrumentCategorySerializer(serializers.ModelSerializer):
+class InstrumentationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.InstrumentCategory
-        fields = ('id', 'name', 'slug', 'created', 'updated')
+        model = models.Instrumentation
+        fields = ('id', 'category', 'name', 'slug', 'created', 'updated')
 
 
 

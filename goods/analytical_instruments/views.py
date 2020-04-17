@@ -3,8 +3,8 @@ from rest_framework import viewsets
 from . import models, serializers
 
 
-class InstrumentCategoryViewSet(viewsets.ModelViewSet):
-    queryset = models.InstrumentCategory.objects.all()
-    serializer_class = serializers.InstrumentCategorySerializer
+class InstrumentationViewSet(viewsets.ModelViewSet):
+    queryset = models.Instrumentation.objects.all()
+    serializer_class = serializers.InstrumentationSerializer
 
 

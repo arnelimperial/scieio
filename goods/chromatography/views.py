@@ -17,7 +17,7 @@ class LCChromaViewSet(viewsets.ModelViewSet):
     queryset = models.LCChroma.objects.all()
     serializer_class = serializers.LCChromaSerializer
 
-
-class GCSystemViewSet(viewsets.ModelViewSet):
-    queryset = models.GCSystem.objects.all()
-    serializer_class = serializers.GCSystemSerializer
+#
+# class GCSystemViewSet(viewsets.ModelViewSet):
+#     queryset = models.GCSystem.objects.all()
+#     serializer_class = serializers.GCSystemSerializer

@@ -1,9 +1,16 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+from goods.categories.models import Category
 
 
-class InstrumentCategory(models.Model):
+class Instrumentation(models.Model):
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='instruments',
+        related_query_name='instrument'
+    )
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, editable=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
@@ -21,7 +28,7 @@ class InstrumentCategory(models.Model):
             'pk': self.id,
             'slug': self.slug
         }
-        return reverse('instrumentCategory-detail', kwargs=kwargs)
+        return reverse('instrumentation-detail', kwargs=kwargs)
 
     def save(self, *args, **kwargs):
         value = self.name
