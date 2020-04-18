@@ -19,30 +19,54 @@ class LCChromaSerializer(serializers.ModelSerializer):
         model = models.LCChroma
         fields = ('id', 'chromatography_category', 'name', 'slug', 'created', 'updated')
 
-#
-# class GCSystemSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = models.GCSystem
-#         fields = (
-#             'id',
-#             'product_category',
-#             'instrument_category',
-#             'chromatography_category',
-#             'gc_category',
-#             'name',
-#             'slug',
-#             'description',
-#             'product_id',
-#             'model',
-#             'condition',
-#             'warranty',
-#             'seller',
-#             'manufacturer',
-#             'image',
-#             'price',
-#             'created',
-#             'name',
-#             'slug',
-#             'created',
-#             'updated'
-#         )
+
+class GCSystemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.GCSystem
+        fields = (
+            'id',
+            'gc_category',
+            'name',
+            'slug',
+            'description',
+            'product_code',
+            'model',
+            'condition',
+            'warranty',
+            'seller',
+            'manufacturer',
+            'image',
+            'availability',
+            'price',
+            'created',
+            'name',
+            'slug',
+            'created',
+            'updated'
+        )
+
+
+class LCSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.LC
+        fields = (
+            'id',
+            'lc_category',
+            'name',
+            'slug',
+            'description',
+            'product_code',
+            'model',
+            'condition',
+            'warranty',
+            'seller',
+            'manufacturer',
+            'image',
+            'availability',
+            'price',
+            'created',
+            'name',
+            'slug',
+            'created',
+            'updated'
+        )

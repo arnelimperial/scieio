@@ -5,6 +5,8 @@ from . import models
 class SellerAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'service_line',
+        'client_manufacturer',
         'name',
         'slug',
         'location',

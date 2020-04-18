@@ -19,9 +19,9 @@ urlpatterns = [
     path("products/", include("goods.categories.urls")),
     path("analytical-instruments/", include("goods.analytical_instruments.urls")),
     path("chromatography/", include("goods.chromatography.urls")),
-    #path("brands/", include("goods.manufacturers.urls")),
-    #path("sellers/", include("goods.sellers.urls")),
-    #path("product-conditions/", include("goods.conditions.urls")),
+    path("brands/", include("goods.manufacturers.urls")),
+    path("sellers/", include("goods.sellers.urls")),
+    path("product-conditions/", include("goods.conditions.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

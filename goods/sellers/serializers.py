@@ -7,6 +7,8 @@ class SellerSerializer(serializers.ModelSerializer):
         model = models.Seller
         fields = (
             'id',
+            'service_line',
+            'client_manufacturer',
             'name',
             'slug',
             'location',

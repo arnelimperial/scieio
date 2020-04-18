@@ -4,9 +4,10 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register('categories', views.ChromaCategoryViewSet)
-router.register('gas-chromatography', views.GCChromaViewSet)
-router.register('liquid-chromatography', views.LCChromaViewSet)
-# router.register('gc-systems', views.GCSystemViewSet)
+router.register('gc', views.GCChromaViewSet)
+router.register('lc', views.LCChromaViewSet)
+router.register('gas-chromatography', views.GCSystemViewSet)
+router.register('liquid-chromatography', views.LCViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

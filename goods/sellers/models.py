@@ -2,16 +2,30 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from goods.categories.models import Category
+from goods.manufacturers.models import Manufacturer
+from goods.categories.models import Category
 
 
 class Seller(models.Model):
+    service_line = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='services',
+        related_query_name='service'
+    )
+    client_manufacturer = models.ForeignKey(
+        Manufacturer,
+        on_delete=models.CASCADE,
+        related_name='client_manufacturers',
+        related_query_name='client_manufacturer'
+    )
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, editable=False)
     location = models.CharField(max_length=100)
     website = models.URLField(max_length=100, blank=True)
     description = models.TextField(blank=True)
-    shipping_policy = models.CharField(max_length=255, default='')
-    return_policy = models.CharField(max_length=255, default='')
+    shipping_policy = models.TextField(default='No Shipping Policy Listed')
+    return_policy = models.TextField(default='No Return Policy Listed')
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
