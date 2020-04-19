@@ -17,15 +17,15 @@ def product_code_end():
     return random.randint(1, 99)
 
 
-def reagent_count():
-    obj = Reagent.objects.all().count()
+def synthesizer_count():
+    obj = DNASynthesizer.objects.all().count()
     if obj == 0:
         return 1
     else:
         return obj + 1
 
 
-class Reagent(models.Model):
+class DNASynthesizer(models.Model):
     life_science = models.ForeignKey(LifeScience, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, editable=False)
@@ -59,20 +59,20 @@ class Reagent(models.Model):
             'pk': self.id,
             'slug': self.slug
         }
-        return reverse('reagent-detail', kwargs=kwargs)
+        return reverse('dna-synthesizer-detail', kwargs=kwargs)
 
     def clean(self, *args, **kwargs):
         # code = self.cleaned_data['product_code']
-        pc = Reagent.objects.filter(product_code=self.product_code)
+        pc = DNASynthesizer.objects.filter(product_code=self.product_code)
         if pc:
             raise ValidationError('Product code already exist!')
-        super(Reagent, self).clean(*args, **kwargs)
+        super(DNASynthesizer, self).clean(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         value = self.name
         self.slug = slugify(value, allow_unicode=True)
         self.product_code = "{}-{}{}{}".format(
-            "IS", product_code_start(), reagent_count(), product_code_end()
+            "DN2", product_code_start(), synthesizer_count(), product_code_end()
         )
         self.full_clean()
         super().save(*args, **kwargs)

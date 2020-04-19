@@ -101,7 +101,7 @@ LOCAL_APPS = [
     "instruments.spectroscopy",
     "instruments.elemental_analyzers",
     "biology.life_sciences",
-    "biology.reagents",
+    "biology.dna_synthesizers",
     "biology.microarray",
     "biology.dna_sequencer",
     "biology.bioreactors",

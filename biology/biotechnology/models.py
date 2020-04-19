@@ -18,7 +18,7 @@ def product_code_end():
 
 
 def biotech_count():
-    obj = BioReactor.objects.all().count()
+    obj = BioTech.objects.all().count()
     if obj == 0:
         return 1
     else:
@@ -63,16 +63,16 @@ class BioTech(models.Model):
 
     def clean(self, *args, **kwargs):
         # code = self.cleaned_data['product_code']
-        pc = BioReactor.objects.filter(product_code=self.product_code)
+        pc = BioTech.objects.filter(product_code=self.product_code)
         if pc:
             raise ValidationError('Product code already exist!')
-        super(BioReactor, self).clean(*args, **kwargs)
+        super(BioTech, self).clean(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         value = self.name
         self.slug = slugify(value, allow_unicode=True)
         self.product_code = "{}-{}{}{}".format(
-            "FB", product_code_start(), bioreactor_count(), product_code_end()
+            "FB", product_code_start(), biotech_count(), product_code_end()
         )
         self.full_clean()
         super().save(*args, **kwargs)

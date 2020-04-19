@@ -2,7 +2,7 @@ from django.contrib import admin
 from . import models
 
 
-class ReagentAdmin(admin.ModelAdmin):
+class DNASynthesizerAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'life_science',
@@ -26,4 +26,4 @@ class ReagentAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(models.Reagent, ReagentAdmin)
+admin.site.register(models.DNASynthesizer, DNASynthesizerAdmin)

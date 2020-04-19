@@ -2,9 +2,9 @@ from rest_framework import serializers
 from . import models
 
 
-class ReagentSerializer(serializers.ModelSerializer):
+class DNASynthesizerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Reagent
+        model = models.DNASynthesizer
         fields = (
             'id',
             'life_science',

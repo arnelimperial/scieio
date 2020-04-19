@@ -72,7 +72,7 @@ class DNASequencer(models.Model):
         value = self.name
         self.slug = slugify(value, allow_unicode=True)
         self.product_code = "{}-{}{}{}".format(
-            "MAS", product_code_start(), sequencer_count(), product_code_end()
+            "DN1", product_code_start(), sequencer_count(), product_code_end()
         )
         self.full_clean()
         super().save(*args, **kwargs)
