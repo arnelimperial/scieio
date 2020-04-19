@@ -32,6 +32,7 @@ urlpatterns = [
     path("biotechnology/", include("biology.biotechnology.urls")),
     path("fermenters-and-bioreactors/", include("biology.bioreactors.urls")),
     path("dna-sequencers/", include("biology.dna_sequencer.urls")),
+    path("test-and-semiconductor/", include("test-semiconductor.tests_semiconductors.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
