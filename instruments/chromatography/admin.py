@@ -17,9 +17,6 @@ class LCChromaAdmin(admin.ModelAdmin):
 class GCSystemAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        # 'product_category',
-        # 'instrument_category',
-        # 'chromatography_category',
         'gc_category',
         'name',
         'slug',
@@ -39,6 +36,7 @@ class GCSystemAdmin(admin.ModelAdmin):
         'created',
         'updated'
     )
+
 
 class LCAdmin(admin.ModelAdmin):
     list_display = (

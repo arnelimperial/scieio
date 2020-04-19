@@ -1,9 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
-from goods.categories.models import Category
-from goods.manufacturers.models import Manufacturer
-from goods.categories.models import Category
+from generals.manufacturers.models import Manufacturer
+from categories.models import Category
 
 
 class Seller(models.Model):

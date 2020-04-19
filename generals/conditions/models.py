@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
-from goods.categories.models import Category
 
 
 class Condition(models.Model):

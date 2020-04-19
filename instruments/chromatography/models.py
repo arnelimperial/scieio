@@ -2,10 +2,10 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.core.exceptions import ValidationError
-from goods.analytical_instruments.models import Instrumentation
-from goods.manufacturers.models import Manufacturer
-from goods.sellers.models import Seller
-from goods.conditions.models import Condition
+from instruments.analytical_instruments.models import Instrumentation
+from generals.manufacturers.models import Manufacturer
+from generals.sellers.models import Seller
+from generals.conditions.models import Condition
 import random
 
 
@@ -107,8 +107,20 @@ class LCChroma(models.Model):
 
 # For GC Systems, Autosamplers and columns
 
-def product_code():
-    return str(random.randrange(100, 9999999))
+def product_code_start():
+    return random.randint(1, 99)
+
+
+def product_code_end():
+    return random.randint(1, 99)
+
+
+def gas_count():
+    obj_gas = GCSystem.objects.latest('id')
+    if obj_gas is None:
+        return 1
+    else:
+        return obj_gas.id + 1
 
 
 class GCSystem(models.Model):
@@ -125,8 +137,7 @@ class GCSystem(models.Model):
         unique=True,
         blank=False,
         max_length=10,
-        editable=False,
-        default='GC-' + product_code()
+        editable=False
     )
     model = models.CharField(max_length=255, unique=True)
     condition = models.ForeignKey(
@@ -178,9 +189,19 @@ class GCSystem(models.Model):
     def save(self, *args, **kwargs):
         value = self.name
         self.slug = slugify(value, allow_unicode=True)
+        self.product_code = "{}-{}{}{}".format(
+            "GC", product_code_start(), gas_count(), product_code_end()
+        )
         self.full_clean()
         super().save(*args, **kwargs)
 
+
+def liquid_count():
+    obj_liquid = LiquidMS.objects.latest('id')
+    if obj_liquid is None:
+        return 1
+    else:
+        return obj_liquid.id + 1
 
 class LC(models.Model):
     lc_category = models.ForeignKey(
@@ -196,8 +217,7 @@ class LC(models.Model):
         unique=True,
         blank=False,
         max_length=10,
-        editable=False,
-        default='LC-' + product_code()
+        editable=False
     )
     model = models.CharField(max_length=255, unique=True)
     condition = models.ForeignKey(
@@ -248,6 +268,9 @@ class LC(models.Model):
 
     def save(self, *args, **kwargs):
         value = self.name
+        self.product_code = "{}-{}{}{}".format(
+            "LC", product_code_start(), liquid_count(), product_code_end()
+        )
         self.slug = slugify(value, allow_unicode=True)
         self.full_clean()
         super().save(*args, **kwargs)
