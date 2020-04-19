@@ -27,6 +27,7 @@ urlpatterns = [
     path("elemental-analyzers/", include("instruments.elemental_analyzers.urls")),
     path("life-sciences/", include("biology.life_sciences.urls")),
     path("electrophorosis/", include("biology.electrophorosis.urls")),
+    path("microarray-scanners/", include("biology.microarray.urls")),
 
 
 
