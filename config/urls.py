@@ -16,13 +16,15 @@ urlpatterns = [
     path("users/", include("scieio.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path("products/", include("categories.urls")),
+    path("products/", include("generals.categories.urls")),
     path("analytical-instruments/", include("instruments.analytical_instruments.urls")),
     path("chromatography/", include("instruments.chromatography.urls")),
     path("brands/", include("generals.manufacturers.urls")),
     path("sellers/", include("generals.sellers.urls")),
     path("product-conditions/", include("generals.conditions.urls")),
     path("mass-spectrometry/", include("instruments.spectrometry.urls")),
+    path("spectroscopy/", include("instruments.spectroscopy.urls")),
+    path("elemental-analyzers/", include("instruments.elemental_analyzers.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

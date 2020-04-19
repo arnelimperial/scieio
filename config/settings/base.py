@@ -91,13 +91,15 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "scieio.users.apps.UsersConfig",
     # Your stuff: custom apps go here
-    "categories.apps.CategoriesConfig",
+    "generals.categories",
     "instruments.analytical_instruments",
     "instruments.chromatography",
     "generals.manufacturers",
     "generals.sellers",
     "generals.conditions",
     "instruments.spectrometry",
+    "instruments.spectroscopy",
+    "instruments.elemental_analyzers",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
