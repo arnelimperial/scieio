@@ -101,8 +101,9 @@ LOCAL_APPS = [
     "instruments.spectroscopy",
     "instruments.elemental_analyzers",
     "biology.life_sciences",
-    "biology.electrophorosis",
+    # "biology.reagents",
     "biology.microarray",
+    "biology.dna_sequencer",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

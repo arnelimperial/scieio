@@ -26,10 +26,9 @@ urlpatterns = [
     path("spectroscopy/", include("instruments.spectroscopy.urls")),
     path("elemental-analyzers/", include("instruments.elemental_analyzers.urls")),
     path("life-sciences/", include("biology.life_sciences.urls")),
-    path("electrophorosis/", include("biology.electrophorosis.urls")),
+    # path("electrophorosis/", include("biology.electrophorosis.urls")),
     path("microarray-scanners/", include("biology.microarray.urls")),
-
-
+    path("dna-sequencer/", include("biology.dna_sequencer.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
