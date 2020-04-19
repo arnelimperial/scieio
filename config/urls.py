@@ -26,11 +26,13 @@ urlpatterns = [
     path("spectroscopy/", include("instruments.spectroscopy.urls")),
     path("elemental-analyzers/", include("instruments.elemental_analyzers.urls")),
     path("life-sciences/", include("biology.life_sciences.urls")),
-    # path("electrophorosis/", include("biology.electrophorosis.urls")),
+    path("reagents-and-synthesis/", include("biology.reagents.urls")),
     path("microarray-scanners/", include("biology.microarray.urls")),
-    path("dna-sequencer/", include("biology.dna_sequencer.urls")),
+    path("immunoassay-systems/", include("biology.immunoassay.urls")),
+    path("biotechnology/", include("biology.biotechnology.urls")),
+    path("fermenters-and-bioreactors/", include("biology.bioreactors.urls")),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 if settings.DEBUG:
