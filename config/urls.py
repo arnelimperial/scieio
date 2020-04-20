@@ -37,6 +37,10 @@ urlpatterns = [
     path("viscometer-and-rheometer/", include("testers.viscometers.urls")),
     path("test-and-semiconductor/", include("testers.tests_semiconductors.urls")),
     path("hardness-tester/", include("testers.hardness.urls")),
+    path("process-equipment/", include("process.process.urls")),
+    path("food-processing-equipment/", include("process.food_processing.urls")),
+    path("pharmaceutical-equipment/", include("process.pharmaceutical.urls")),
+    path("water-treatment-equipment/", include("process.water_treatment.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -112,6 +112,11 @@ LOCAL_APPS = [
     "testers.viscometers",
     "testers.disposition",
     "testers.hardness",
+    "process.process",
+    "process.food_processing",
+    "process.water_treatment",
+    "process.pharmaceutical",
+
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
